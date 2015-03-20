@@ -28,11 +28,11 @@ public class FileChanged extends FileAlterationListenerAdaptor
     
     public void makepost(String filename) throws Exception
     {
-    	String data = URLEncoder.encode("smscenter", "UTF-8") + "=" + URLEncoder.encode(filename, "UTF-8");
-        data += "&" + URLEncoder.encode("text", "UTF-8") + "=" + URLEncoder.encode(filename, "UTF-8");
-        data += "&" + URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode("2112315", "UTF-8");
+    	String data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode("sd0389@gmail.com", "UTF-8");
+        //data += "&" + URLEncoder.encode("text", "UTF-8") + "=" + URLEncoder.encode(filename, "UTF-8");
+        //data += "&" + URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode("2112315", "UTF-8");
 
-        URL url = new URL("http://localhost:80/sachin/smstodb.php");
+        URL url = new URL("http://localhost/gcmdemo/mailresolver.php");
         URLConnection conn = url.openConnection();
         conn.setDoOutput(true);
         OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
