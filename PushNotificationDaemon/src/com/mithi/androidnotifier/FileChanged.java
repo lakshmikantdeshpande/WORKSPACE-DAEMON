@@ -12,6 +12,12 @@ import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
  
 public class FileChanged extends FileAlterationListenerAdaptor
 {
+	String email;
+	public FileChanged(String emailid)
+	{
+		email=emailid;
+	}
+	
     @Override
     public void onFileCreate(final File file) {
 
@@ -23,12 +29,13 @@ public class FileChanged extends FileAlterationListenerAdaptor
     	catch(Exception e)
     	{
     		System.out.println("\nHTTP POST request failed....");
+    		System.out.println("\nSeems like " + email + "is not registered on Mithi Server");
     	}
     }
     
     public void makepost(String filename) throws Exception
     {
-    	String data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode("sd0389@gmail.com", "UTF-8");
+    	String data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8");
         //data += "&" + URLEncoder.encode("text", "UTF-8") + "=" + URLEncoder.encode(filename, "UTF-8");
         //data += "&" + URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode("2112315", "UTF-8");
 

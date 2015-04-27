@@ -8,12 +8,12 @@ import org.apache.commons.io.monitor.FileAlterationObserver;
  * Author : Lakshmikant A. Deshpande
  */
 public class FileMonitor {
- 
+ 	
     public static void main(String[] args) throws Exception {
  
-        final File directory = new File("C:\\Users\\Sachin\\Desktop");
+        final File directory = new File(args[1]);
         FileAlterationObserver fao = new FileAlterationObserver(directory);
-        fao.addListener(new FileChanged());
+        fao.addListener(new FileChanged(args[0]));
         
         final FileAlterationMonitor monitor = new FileAlterationMonitor();
         monitor.addObserver(fao);
